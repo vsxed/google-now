@@ -1,4 +1,72 @@
 /* Google Now CSS/LESS file
- * CSS only, optimized for mobile devices
+ * CSS only, optimized for mobile devices for an superior UX
  * using the checkbox-hack and BEM naming convention
  */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  background: #eee;
+  padding: 0 24px;
+  box-sizing: border-box;
+  height: 100%;
+}
+header {
+  height: 185px;
+  width: 100%;
+  background: url('img/header-background.gif') center center no-repeat;
+  background-size: cover;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  position: absolute;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.header__search-field {
+  width: 100%;
+  outline: 0;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  border: 0;
+  margin: 125px 0 20px;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  height: 30px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.header__search-field:focus,
+.header__search-field:focus ~ * {
+  -webkit-transform: translateY(-105px);
+}
+.header__search-field:focus + header,
+.header__search-field:focus ~ * + header {
+  opacity: 0;
+  -webkit-transform: translateY(-185px);
+}
+.card {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-bottom: 20px;
+  min-height: 100px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}

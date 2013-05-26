@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<meta name="author" content="Eduard Mayer">
+	<meta name="keywords" content="HTML,CSS3,CSS,CSS-only,Google,Google Now">
+	<meta name="description" content="Google Now, css only. Yippie yeah!">
 	<title>Google Now</title>
 	<link rel="stylesheet" href="now.css">
+	<script type="text/javascript" src="js/fastclick.js"></script>
+	<script>
+		window.addEventListener('load', function() {
+		new FastClick(document.body);}, false);
+	</script>
 </head>
-<body>
-	
+</head>
+<body>		
+	<input type="search" placeholder="Suchen" class="header__search-field">
+	<header></header>
+	<div class="card"></div>
 </body>
 </html>
