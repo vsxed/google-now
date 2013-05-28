@@ -7,6 +7,7 @@
 // 
 @shadow: rgba(0,0,0,0.15);
 @gray: #e5e5e5;
+@dark-gray: darken(@gray, 25%);
 @link-used: #55008e;
 
 @anim-time: 0.4s;
@@ -74,12 +75,12 @@
   text-decoration: inherit;
   display: inline-block;
   speak: none;
+  line-height: 0;
 }
 
 .icon--google:before {
 	content: 'c';
 	font-size: 13rem;
-	line-height: 0;
 	position: relative;
 	top: 9.5rem;
 	display: block;
@@ -89,14 +90,31 @@
 	text-shadow: 0 2px 3px @shadow;
 }
 
-.icon--link {
-	content: '2';
+.icon--speech {
+	width: 1em;
+	display: inline-block;
+	height: 1em;
+	top: 8.15rem;
+	right: 1.5rem;
+	position: absolute;
+	z-index: 99999999;
+	font-size: 2rem;
+	.transition(@anim-time @suggestion-delay);
+
+	&:before {
+		content: '9';
+		top: 0.65rem;
+		color: @dark-gray;
+		position: relative;
+		font-size: 5rem;
+	}
 }
 
 // Less to compile
-
+// 
 // Helper Classes
 // 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -134,6 +152,8 @@ header {
 	left: 0;
 }
 
+// SEARCH FIELD
+// 
 .header__search-field {
 	width: 100%;
 	position: relative;
