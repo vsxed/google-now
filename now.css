@@ -58,7 +58,7 @@ body {
   background: #e5e5e5;
   padding: 0 1rem;
   box-sizing: border-box;
-  height: 100%;
+  height: auto;
   font-family: "Roboto";
   font-size: 16px;
 }
@@ -122,23 +122,18 @@ header {
   -o-transition: 0.4s 0.45s all ease-in-out;
   transition: 0.4s 0.45s all ease-in-out;
 }
-.header__search-field:focus + .cards-ui,
-.header__search-field:focus ~ * + .cards-ui {
-  -webkit-transform: translateY(-19rem);
+.header__search-field:focus + .cards-ui .cards-ui__card,
+.header__search-field:focus ~ * + .cards-ui .cards-ui__card {
+  -webkit-transform: translateY(13.5rem);
   -webkit-transition: 0.4s 0.45s all ease-in-out;
   -moz-transition: 0.4s 0.45s all ease-in-out;
   -ms-transition: 0.4s 0.45s all ease-in-out;
   -o-transition: 0.4s 0.45s all ease-in-out;
   transition: 0.4s 0.45s all ease-in-out;
 }
-.header__search-field:focus + .cards-ui .cards-ui__card,
-.header__search-field:focus ~ * + .cards-ui .cards-ui__card {
-  -webkit-transform: translateY(13rem);
-  -webkit-transition: 0.4s 0.45s all ease-in-out;
-  -moz-transition: 0.4s 0.45s all ease-in-out;
-  -ms-transition: 0.4s 0.45s all ease-in-out;
-  -o-transition: 0.4s 0.45s all ease-in-out;
-  transition: 0.4s 0.45s all ease-in-out;
+.header__search-field:focus + .cards-ui .cards-ui__card:last-of-type,
+.header__search-field:focus ~ * + .cards-ui .cards-ui__card:last-of-type {
+  margin-bottom: 8rem;
 }
 .header__search-field:focus + header,
 .header__search-field:focus ~ * + header {
@@ -160,23 +155,6 @@ header {
   transition: 0.4s 0.45s all ease-in-out;
 }
 .cards-ui {
-  -webkit-transform: translateY(-13rem);
-  -webkit-transition: 0.4s 0.45s all ease-in-out;
-  -moz-transition: 0.4s 0.45s all ease-in-out;
-  -ms-transition: 0.4s 0.45s all ease-in-out;
-  -o-transition: 0.4s 0.45s all ease-in-out;
-  transition: 0.4s 0.45s all ease-in-out;
-}
-.card {
-  width: 100%;
-  height: auto;
-  -webkit-transform: translateY(-26rem);
-  position: relative;
-  margin-bottom: 0.5rem;
-  background: white;
-  box-sizing: border-box;
-  border-radius: 3px;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.4s 0.45s all ease-in-out;
   -moz-transition: 0.4s 0.45s all ease-in-out;
   -ms-transition: 0.4s 0.45s all ease-in-out;
@@ -200,6 +178,15 @@ header {
 }
 .card--suggestions {
   min-height: 3rem;
+  left: 1rem;
+  height: auto;
+  position: absolute;
+  margin-bottom: 0.5rem;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  right: 1rem;
   -webkit-transform: translateY(-17rem);
   padding: 0.5rem 1rem;
   z-index: 1;
@@ -229,6 +216,6 @@ header {
   position: absolute;
   font-weight: 100;
   color: #e5e5e5;
-  right: -30px;
+  right: -1.5rem;
   top: 7px;
 }

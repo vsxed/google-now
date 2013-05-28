@@ -107,7 +107,7 @@ body {
 	background: @gray;
 	padding: 0 1rem;
 	box-sizing: border-box;
-	height: 100%;
+	height: auto;
 	font-family: "Roboto";
 	font-size: 16px;
 }
@@ -157,14 +157,13 @@ header {
 			.transition( @anim-time @suggestion-delay);
 		}
 
-		& + .cards-ui {
-			-webkit-transform: translateY(-19rem);
-			.transition(@anim-time @suggestion-delay);
-		}
-
 		& + .cards-ui .cards-ui__card{
-			-webkit-transform: translateY(13rem);
-			.transition(@anim-time @suggestion-delay)
+			-webkit-transform: translateY(13.5rem);
+			.transition(@anim-time @suggestion-delay);
+
+			&:last-of-type {
+				margin-bottom: 8rem;
+			}
 		}
 
 		& + header {
@@ -184,25 +183,13 @@ header {
 // 
 
 .cards-ui {
-	-webkit-transform: translateY(-13rem);
 	.transition(@anim-time @suggestion-delay);
 }
 
 // CARDS
 // 
-.card {
-	width: 100%;
-	height: auto;
-	-webkit-transform: translateY(-26rem);
-	position: relative;
-	margin-bottom: 0.5rem;
-	background: white;
-	box-sizing: border-box;
-	border-radius: 3px;
-	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-	.transition(@anim-time @suggestion-delay);
-}
-
+// STANDARD
+// 
 .cards-ui__card {
 	width: 100%;
 	height: auto;
@@ -215,17 +202,27 @@ header {
 	.transition(@anim-time @suggestion-delay);
 }
 
+// CARD SUGGESTIONS
+// 
 .card--suggestions {
 	min-height: 3rem;
+	left: 1rem;
+	height: auto;
+	position: absolute;
+	margin-bottom: 0.5rem;
+	background: white;
+	box-sizing: border-box;
+	border-radius: 3px;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+	right: 1rem;
 	-webkit-transform: translateY(-17rem);
 	padding: 0.5rem 1rem;
 	z-index: 1;
+
 	.transition(@anim-time);
 	opacity: 0;
 }
 
-// CARD SUGGESTIONS
-// 
 .card--suggestions__link {
 	text-decoration: none;
 	display: block;
@@ -246,7 +243,7 @@ header {
 		position: absolute;
 		font-weight: 100;
 		color: @gray;
-		right: -30px;
+		right: -1.5rem;
 		top: 7px;
 	}
 }
