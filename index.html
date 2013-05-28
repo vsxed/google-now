@@ -6,7 +6,7 @@
 	<meta name="author" content="Eduard Mayer">
 	<meta name="keywords" content="HTML,CSS3,CSS,CSS-only,Google,Google Now">
 	<meta name="description" content="Google Now, css only. Yippie yeah!">
-	<title>Google Now</title>
+	<title>Google Now Replica</title>
 	<link rel="stylesheet" href="now.css">
 	<script type="text/javascript" src="js/fastclick.js"></script>
 	<script>
@@ -16,8 +16,23 @@
 </head>
 </head>
 <body>		
-	<input type="search" placeholder="Suchen" class="header__search-field">
-	<header></header>
-	<div class="card"></div>
+	<input type="search" readonly="true" placeholder="Suchen" class="header__search-field">
+	<header><i class="icon--google"></i></header>
+
+	<div class="card card--suggestions">
+		<a href="#" class="card--suggestions__link">copy</a>
+		<a href="#" class="card--suggestions__link">kerning</a>
+		<a href="#" class="card--suggestions__link">i love google now</a>
+		<a href="#" class="card--suggestions__link">wikipedia</a>
+	</div>
+
+	<div class="cards-ui">
+		<div style="height: 4rem" class="cards-ui__card"></div>
+		<div style="height: 4rem" class="cards-ui__card"></div>
+		<div style="height: 4rem" class="cards-ui__card"></div>
+	</div>
+	
+
+
 </body>
 </html>
