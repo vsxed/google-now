@@ -53,6 +53,7 @@
   top: 8.15rem;
   right: 1.5rem;
   position: absolute;
+  overflow: hidden;
   z-index: 99999999;
   font-size: 2rem;
   -webkit-transition: 0.4s 0.45s all ease-in-out;
