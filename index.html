@@ -14,13 +14,16 @@
 		new FastClick(document.body);}, false);
 	</script>
 	<script>function formReset(){document.getElementById("search").value='';}</script>
+	<!-- document.getElementById("checkbox").checked = false; -->
 </head>
 </head>
 <body>		
-		<input type="search" id="search" placeholder="Suchen" class="header__search-field">
-		<button onclick="formReset()" class="icon--delete"></button>
-		<input type="checkbox" class="icon--speech">
-	<header><i class="icon--google"></i></header>
+	<input type="search" id="search" placeholder="Suchen" class="header__search-field">
+	<button onclick="formReset()" class="icon--delete"></button>
+	<input type="checkbox" class="icon--speech">
+	<header>
+		<i class="icon--google"></i>
+	</header>
 
 	<div class="card--suggestions">
 		<a href="#" class="card--suggestions__link">copy</a>
