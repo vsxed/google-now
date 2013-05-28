@@ -95,10 +95,12 @@
 	display: inline-block;
 	height: 1em;
 	top: 8.15rem;
+	background: white;
 	right: 1.5rem;
+	-webkit-appearance: none;
 	position: absolute;
 	overflow: hidden;
-	z-index: 99999999;
+	z-index: 999999999;
 	font-size: 2rem;
 	.transition(@anim-time @suggestion-delay);
 
@@ -106,6 +108,31 @@
 		content: '9';
 		top: 0.65rem;
 		color: @dark-gray;
+		position: relative;
+		font-size: 5rem;
+	}
+}
+
+.icon--delete {
+	width: 1em;
+	display: inline-block;
+	height: 1em;
+	top: 8.15rem;
+	right: 3.5rem;
+	-webkit-appearance: none;
+	position: absolute;
+	overflow: hidden;
+	z-index: 99999999;
+	border: 0;
+	-webkit-transform: translateX(2rem);
+	background: white;
+	font-size: 2rem;
+	.transition(@anim-time @suggestion-delay);
+
+	&:before {
+		content: '3';
+		top: 0.65rem;
+		color: @gray;
 		position: relative;
 		font-size: 5rem;
 	}
@@ -174,8 +201,12 @@ header {
 		-webkit-transform: translateY(-6.5rem);
 		.transition(@anim-time);
 
-		& + .cards-ui .cards-ui__card {
+		& ~ .cards-ui .cards-ui__card {
 			.transition( @anim-time @suggestion-delay);
+		}
+
+		& ~ button.icon--delete {
+			-webkit-transform: translateX(0) translateY(-6.5rem);
 		}
 
 		& + .cards-ui .cards-ui__card{

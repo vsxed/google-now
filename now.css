@@ -51,10 +51,12 @@
   display: inline-block;
   height: 1em;
   top: 8.15rem;
+  background: white;
   right: 1.5rem;
+  -webkit-appearance: none;
   position: absolute;
   overflow: hidden;
-  z-index: 99999999;
+  z-index: 999999999;
   font-size: 2rem;
   -webkit-transition: 0.4s 0.45s all ease-in-out;
   -moz-transition: 0.4s 0.45s all ease-in-out;
@@ -66,6 +68,33 @@
   content: '9';
   top: 0.65rem;
   color: #a5a5a5;
+  position: relative;
+  font-size: 5rem;
+}
+.icon--delete {
+  width: 1em;
+  display: inline-block;
+  height: 1em;
+  top: 8.15rem;
+  right: 3.5rem;
+  -webkit-appearance: none;
+  position: absolute;
+  overflow: hidden;
+  z-index: 99999999;
+  border: 0;
+  -webkit-transform: translateX(2rem);
+  background: white;
+  font-size: 2rem;
+  -webkit-transition: 0.4s 0.45s all ease-in-out;
+  -moz-transition: 0.4s 0.45s all ease-in-out;
+  -ms-transition: 0.4s 0.45s all ease-in-out;
+  -o-transition: 0.4s 0.45s all ease-in-out;
+  transition: 0.4s 0.45s all ease-in-out;
+}
+.icon--delete:before {
+  content: '3';
+  top: 0.65rem;
+  color: #e5e5e5;
   position: relative;
   font-size: 5rem;
 }
@@ -134,13 +163,17 @@ header {
   -o-transition: 0.4s all ease-in-out;
   transition: 0.4s all ease-in-out;
 }
-.header__search-field:focus + .cards-ui .cards-ui__card,
-.header__search-field:focus ~ * + .cards-ui .cards-ui__card {
+.header__search-field:focus ~ .cards-ui .cards-ui__card,
+.header__search-field:focus ~ * ~ .cards-ui .cards-ui__card {
   -webkit-transition: 0.4s 0.45s all ease-in-out;
   -moz-transition: 0.4s 0.45s all ease-in-out;
   -ms-transition: 0.4s 0.45s all ease-in-out;
   -o-transition: 0.4s 0.45s all ease-in-out;
   transition: 0.4s 0.45s all ease-in-out;
+}
+.header__search-field:focus ~ button.icon--delete,
+.header__search-field:focus ~ * ~ button.icon--delete {
+  -webkit-transform: translateX(0) translateY(-6.5rem);
 }
 .header__search-field:focus + .cards-ui .cards-ui__card,
 .header__search-field:focus ~ * + .cards-ui .cards-ui__card {

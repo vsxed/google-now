@@ -13,10 +13,13 @@
 		window.addEventListener('load', function() {
 		new FastClick(document.body);}, false);
 	</script>
+	<script>function formReset(){document.getElementById("search").value='';}</script>
 </head>
 </head>
 <body>		
-	<input type="search" readonly="true" placeholder="Suchen" class="header__search-field"><a href="#" class="icon--speech"></a></input>
+		<input type="search" id="search" placeholder="Suchen" class="header__search-field">
+		<button onclick="formReset()" class="icon--delete"></button>
+		<input type="checkbox" class="icon--speech">
 	<header><i class="icon--google"></i></header>
 
 	<div class="card--suggestions">
@@ -36,8 +39,6 @@
 		<div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
 	</div>
-	
-
 
 </body>
 </html>
