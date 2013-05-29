@@ -18,7 +18,7 @@
 </head>
 </head>
 <body>		
-	<input type="search" id="search" placeholder="Suchen" class="header__search-field">
+	<input type="search" readonly id="search" placeholder="Suchen" class="header__search-field">
 	<button onclick="formReset()" class="icon--delete"></button>
 	<input type="checkbox" class="icon--speech">
 	<header>
@@ -33,14 +33,58 @@
 	</div>
 
 	<div class="cards-ui">
-		<div style="height: 8rem" class="cards-ui__card"></div>
+		<div class="cards-ui__card cards-ui__card--weather">
+			<section class="cards-ui__card--weather__top-section">
+				<h2 class="cards-ui__card--weather__top-section__location">Köln</h2>
+				<a href="#" class="cards-ui__card--weather__top-section__info"><i class="icon--info"></i></a>
+			</section>
+			<section class="cards-ui__card--weather__current-section">
+				<div class="cards-ui__card--weather__current-section__condition cloudy">
+					<div class="cards-ui__card--weather__current-section__condition-meta">
+						<span class="cards-ui__card--weather__current-section__condition-meta__text">Bewölkt</span>
+						<span class="cards-ui__card--weather__current-section__condition-meta__wind">14</span>
+						<span class="cards-ui__card--weather__current-section__condition-meta__rain">75</span>
+					</div>
+				</div>
+				<h1 class="cards-ui__card--weather__current-section__temperature">11°</h1>
+			</section>
+			<section class="cards-ui__card--weather__prediction-section">
+				<div class="cards-ui__card--weather__prediction-section__cell">
+					<span class="cards-ui__card--weather__prediction-section__cell__date">Mo</span>
+					<div class="cards-ui__card--weather__prediction-section__cell__weather-image hot"></div>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-max">2</span>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-min">1</span>
+
+				</div>
+				<div class="cards-ui__card--weather__prediction-section__cell">
+					<span class="cards-ui__card--weather__prediction-section__cell__date">Di</span>
+					<div class="cards-ui__card--weather__prediction-section__cell__weather-image rain"></div>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-max">2</span>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-min">1</span>
+
+				</div>
+				<div class="cards-ui__card--weather__prediction-section__cell">
+					<span class="cards-ui__card--weather__prediction-section__cell__date">Mi</span>
+					<div class="cards-ui__card--weather__prediction-section__cell__weather-image heavy-snow"></div>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-max">2</span>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-min">1</span>
+
+				</div>
+				<div class="cards-ui__card--weather__prediction-section__cell">
+					<span class="cards-ui__card--weather__prediction-section__cell__date">Do</span>
+					<div class="cards-ui__card--weather__prediction-section__cell__weather-image cold"></div>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-max">2</span>
+					<span class="cards-ui__card--weather__prediction-section__cell__temp-min">1</span>
+				</div>
+			</section>
+		</div>
+		<!-- <div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
 		<div style="height: 4rem" class="cards-ui__card"></div>
-		<div style="height: 4rem" class="cards-ui__card"></div>
-		<div style="height: 4rem" class="cards-ui__card"></div>
+		<div style="height: 4rem" class="cards-ui__card"></div> -->
 	</div>
 
 </body>

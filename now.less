@@ -8,6 +8,7 @@
 @shadow: rgba(0,0,0,0.15);
 @gray: #e5e5e5;
 @dark-gray: darken(@gray, 25%);
+@text-color: darken(@gray, 50%);
 @link-used: #55008e;
 
 @anim-time: 0.4s;
@@ -76,18 +77,24 @@
   display: inline-block;
   speak: none;
   line-height: 0;
+  font-weight: 100;
 }
 
-.icon--google:before {
-	content: 'c';
-	font-size: 13rem;
-	position: relative;
-	top: 9.5rem;
-	display: block;
+.icon--google {
+	width: 5rem;
 	margin: 0 auto;
-	width: 80px;
-	color: white;
-	text-shadow: 0 2px 3px @shadow;
+	display: block;
+
+	&:before {
+		content: 'c';
+		font-size: 13rem;
+		position: relative;
+		top: 9.5rem;
+		display: block;
+		-webkit-backface-visibility: visible;
+		color: white;
+		text-shadow: 0 2px 3px @shadow;
+	}
 }
 
 .icon--speech {
@@ -96,6 +103,7 @@
 	height: 1em;
 	top: 8.15rem;
 	background: white;
+	border: 0;
 	right: 1.5rem;
 	-webkit-appearance: none;
 	position: absolute;
@@ -107,6 +115,7 @@
 	&:before {
 		content: '9';
 		top: 0.65rem;
+		-webkit-backface-visibility: hidden;
 		color: @dark-gray;
 		position: relative;
 		font-size: 5rem;
@@ -133,6 +142,31 @@
 		content: '3';
 		top: 0.65rem;
 		color: @gray;
+		-webkit-backface-visibility: hidden;
+		position: relative;
+		font-size: 5rem;
+	}
+}
+
+.icon--info {
+	width: 100%;
+	display: inline-block;
+	height: 100%;
+	-webkit-appearance: none;
+	position: relative;
+	overflow: hidden;
+	z-index: 99999999;
+	border: 0;
+	font-weight: 100;
+	background: white;
+	font-size: 2rem;
+	.transition(@anim-time @suggestion-delay);
+
+	&:before {
+		content: '5';
+		top: 1.25rem;
+		color: @gray;
+		right: -1rem;
 		position: relative;
 		font-size: 5rem;
 	}
@@ -142,6 +176,15 @@
 // 
 // Helper Classes
 // 
+
+// WEATHER IMAGES
+// 
+.cloudy 	{background: url('img/weather/cloudy.png') 0 0 no-repeat;}
+.cold 		{background: url('img/weather/cold.png') 0 0 no-repeat;}
+.clear 		{background: url('img/weather/clear.png') 0 0 no-repeat;}
+.heavy-snow {background: url('img/weather/heavy-snow.png') 0 0 no-repeat;}
+.rain 		{background: url('img/weather/rain.png') 0 0 no-repeat;}
+.hot 		{background: url('img/weather/hot.png') 0 0 no-repeat;}
 
 * {
 	margin: 0;
@@ -205,6 +248,11 @@ header {
 			.transition( @anim-time @suggestion-delay);
 		}
 
+		& + .icon--delete,
+		& + .icon--speech {
+			.transition( @anim-time);
+		}
+
 		& ~ button.icon--delete {
 			-webkit-transform: translateX(0) translateY(-6.5rem);
 		}
@@ -231,14 +279,13 @@ header {
 	}
 }
 
-// CARDS-UI
+// CARDS-UI (block)
 // 
-
 .cards-ui {
 	.transition(@anim-time @suggestion-delay);
 }
 
-// CARDS
+// CARD (element)
 // 
 // STANDARD
 // 
@@ -249,12 +296,13 @@ header {
 	margin-bottom: 1rem;
 	background: white;
 	box-sizing: border-box;
+	padding: 0.5rem;
 	border-radius: 3px;
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 	.transition(@anim-time @suggestion-delay);
 }
 
-// CARD SUGGESTIONS
+// CARD SUGGESTIONS (modifier)
 // 
 .card--suggestions {
 	min-height: 3rem;
@@ -268,9 +316,8 @@ header {
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 	right: 1rem;
 	-webkit-transform: translateY(-17rem);
-	padding: 0.5rem 1rem;
+	padding: 0.5rem;
 	z-index: 1;
-
 	.transition(@anim-time);
 	opacity: 0;
 }
@@ -280,6 +327,7 @@ header {
 	display: block;
 	padding: 0.75rem;
 	position: relative;
+	overflow: hidden;
 	color: @link-used;
 	font-weight: 700;
 	border-bottom: 1px solid @gray;
@@ -295,10 +343,176 @@ header {
 		position: absolute;
 		font-weight: 100;
 		color: @gray;
-		right: -1.5rem;
+		right: -2.25rem;
 		top: 7px;
 	}
 }
 
-//  ANIMATIONS
+// CARD WEATHER (modifier)
 // 
+.cards-ui__card--weather {
+	min-height: 8rem;
+}
+
+.cards-ui__card--weather__top-section {
+	display: block;
+	height: 3rem;
+	position: relative;
+	width: 100%;
+}
+
+.cards-ui__card--weather__top-section__location {
+	font-size: 1.5rem;
+	display: inline-block;
+	color: @text-color;
+	font-weight: 200;
+	padding: 0.5rem 0 0 0.5rem;
+	vertical-align: top;
+}
+
+.cards-ui__card--weather__top-section__info {
+	width: 50px;
+	height: 100%;
+	position: absolute;
+	right:0;
+	display: inline-block;
+	background: red;
+}
+
+.cards-ui__card--weather__current-section {
+	display: block;
+	position: relative;
+	width:100%;
+}
+
+.cards-ui__card--weather__current-section__temperature {
+	font-size: 7rem;
+	font-weight: 300;
+	color: @text-color;
+	position: relative;
+	text-align: right;
+}
+
+.cards-ui__card--weather__current-section__condition {
+	display: inline-block;
+	width: 100%;
+	top: 1rem;
+	height: 8rem;
+	position: absolute;
+	box-sizing: border-box;
+	padding: 0 1rem;
+}
+
+.cards-ui__card--weather__current-section__condition-meta {
+	position: relative;
+	top: 4.5rem;
+}
+
+.cards-ui__card--weather__current-section__condition-meta * {
+	color: @text-color;
+	font-size: 1rem;
+	position: relative;
+	display: block;
+	margin-bottom: 0.25rem;
+}
+
+.cards-ui__card--weather__current-section__condition-meta__wind {
+	&:before {
+		content: 'b';
+		display: inline-block;
+		font-family: "google-now", sans-serif;
+		font-size: 4.5rem;
+		vertical-align: top;
+		line-height: 1;
+		height: 1rem;
+		width: 2rem;
+		color: @gray;
+	}
+
+	&:after {
+		content: 'km/h';
+		display: inline-block;
+		font-size: 0.75rem;
+		vertical-align: 4px;
+		margin-left: 0.125rem;
+	}
+}
+
+.cards-ui__card--weather__current-section__condition-meta__rain {
+	&:before {
+		content: 'a';
+		display: inline-block;
+		font-family: "google-now", sans-serif;
+		font-size: 4.5rem;
+		vertical-align: top;
+		line-height: 1;
+		color: @gray;
+		height: 1rem;
+		width: 2rem;
+	}
+
+	&:after {
+		content: '%';
+		display: inline-block;
+	}
+}
+
+.cards-ui__card--weather__prediction-section {
+	display: block;
+	margin-top: 4rem;
+	width: 100%;
+	height: 7rem;
+	padding-bottom: 0.5rem;
+}
+
+.cards-ui__card--weather__prediction-section__cell {
+	height: 100%;
+	width: 25%;
+	float: left;
+	text-align: center;
+	box-sizing: border-box;
+	display: inline-block;
+	border-left: 1px solid @gray;
+
+	&:first-of-type { border-left: 0;}
+}
+
+.cards-ui__card--weather__prediction-section__cell__date {
+	color: @text-color;
+	position: relative;
+	top: -2rem;
+}
+
+.cards-ui__card--weather__prediction-section__cell__weather-image {
+	display: block;
+	height: 3rem;
+	top: -1.5rem;
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	background-size: contain;
+}
+
+.cards-ui__card--weather__prediction-section__cell__temp-max {
+	color: @text-color;
+	font-weight: 600;
+	display: block;
+	position: relative;
+	top: -1.125rem;
+}
+
+.cards-ui__card--weather__prediction-section__cell__temp-min {
+	color: @dark-gray;
+	font-weight: 600;
+	display: block;
+	top: -0.25rem;
+	position: relative;
+}
+
+.cards-ui__card--weather__prediction-section__cell__temp-min,
+.cards-ui__card--weather__prediction-section__cell__temp-max {
+	&:after {
+		content: '°';
+		display: inline-block;
+	}
+}
